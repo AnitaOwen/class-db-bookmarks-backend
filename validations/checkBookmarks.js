@@ -25,5 +25,16 @@ const checkBoolean = (req, res, next) => {
       res.status(400).json({ error: 'is_favorite must be a boolean value' })
     }
   }
+
+//   Multi-check string alternative:
+// const checkName = (req, res, next) => {
+//   if (!req.body.name) {
+//     res.status(400).json({ error: "Name is required" });
+//   } else if (!req.body.description) {
+//     res.status(400).json({ error: "Description is required" });
+//   } else {
+//     return next();
+//   }
+// };
   
   module.exports = { checkBoolean, checkName }

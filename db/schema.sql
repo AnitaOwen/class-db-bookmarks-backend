@@ -12,3 +12,14 @@ CREATE TABLE bookmarks (
  description TEXT,
  is_favorite BOOLEAN
 );
+
+CREATE TABLE reviews (
+ id SERIAL PRIMARY KEY,
+ reviewer TEXT,
+ title TEXT,
+ content TEXT,
+ rating NUMERIC,
+ CHECK (rating >= 0 AND rating <= 5),
+ bookmark_id INTEGER REFERENCES bookmarks (id)
+ ON DELETE CASCADE
+);
